@@ -20,6 +20,12 @@ for file_name in os.listdir(input_folder):
 
             # Select only the 'owner' column, remove duplicates
             unique_addresses = df['owner'].drop_duplicates()
+            
+            # Count the number of unique addresses
+            num_unique_addresses = unique_addresses.shape[0]
+
+            # Print the number of unique addresses to the terminal
+            print(f'Number of unique addresses found: {num_unique_addresses}')
 
             # Convert the Series to a DataFrame and rename the column
             unique_addresses_df = unique_addresses.reset_index(drop=True).to_frame(name='wallet')
